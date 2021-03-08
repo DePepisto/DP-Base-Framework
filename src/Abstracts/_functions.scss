@@ -4,7 +4,7 @@
 
 // check, whether a variable is a map
 @function isMap($variable) {
-	@return type-of($variable) == "map";
+  @return type-of($variable) == "map";
 }
 
 // get a css-variable or the actual value from the color-map
@@ -12,73 +12,87 @@
 // @param {Boolean} $value - true gibt den Wert der Varable zurück ( Standard = false)
 
 @function colorMaps($key-name, $value: false, $sub-key: null) {
-	@if $value == true {
-		$key: map-get($colors, $key-name);
-		@if isMap($key) {
-			@if $sub-key != null {
-				@return map-get(map-get($colors, $key-name), $sub-key);
-			} @else {
-				@return map-get(map-get($colors, $key-name), $key-name);
-			}
-		} @else {
-			@return map-get($colors, $key-name);
-		}
-	} @else {
-		@if $sub-key != null {
-			@return var(--#{$prefix}-color-#{$key-name}--#{$sub-key});
-		} @else {
-			@return var(--#{$prefix}-color-#{$key-name});
-		}
-	}
+  @if $value == true {
+    $key: map-get($colors, $key-name);
+    @if isMap($key) {
+      @if $sub-key != null {
+        @return map-get(map-get($colors, $key-name), $sub-key);
+      } @else {
+        @return map-get(map-get($colors, $key-name), $key-name);
+      }
+    } @else {
+      @return map-get($colors, $key-name);
+    }
+  } @else {
+    @if $sub-key != null {
+      @return var(--#{$prefix}-color-#{$key-name}--#{$sub-key});
+    } @else {
+      @return var(--#{$prefix}-color--#{$key-name});
+    }
+  }
 }
 // get a css-variable or the actual value from the typography-map
 
 @function typoMaps($key-name, $value: false, $sub-key: null) {
-	@if $value == true {
-		$key: map-get($typography, $key-name);
-		@if isMap($key) {
-			@if $sub-key != null {
-				@return map-get(map-get($typography, $key-name), $sub-key);
-			} @else {
-				@return map-get(map-get($typography, $key-name), $key-name);
-			}
-		} @else {
-			@return map-get($typography, $key-name);
-		}
-	} @else {
-		@if $sub-key != null {
-			@return var(--#{$prefix}-typo-#{$key-name}--#{$sub-key});
-		} @else {
-			@return var(--#{$prefix}-typo-#{$key-name});
-		}
-	}
+  @if $value == true {
+    $key: map-get($typography, $key-name);
+    @if isMap($key) {
+      @if $sub-key != null {
+        @return map-get(map-get($typography, $key-name), $sub-key);
+      } @else {
+        @return map-get(map-get($typography, $key-name), $key-name);
+      }
+    } @else {
+      @return map-get($typography, $key-name);
+    }
+  } @else {
+    @if $sub-key != null {
+      @return var(--#{$prefix}-typo-#{$key-name}--#{$sub-key});
+    } @else {
+      @return var(--#{$prefix}-typo--#{$key-name});
+    }
+  }
 }
 
 // get a css-variable or the actual value from the transition-map
-@function transition($key-name, $value: false) {
-	@if $value == true {
-		@return map-get($transition, $key-name);
-	} @else {
-		@return var(--#{$prefix}-transition-#{$key-name});
-	}
+
+@function transition($key-name, $value: false, $sub-key: null) {
+  @if $value == true {
+    $key: map-get($transition, $key-name);
+    @if isMap($key) {
+      @if $sub-key != null {
+        @return map-get(map-get($transition, $key-name), $sub-key);
+      } @else {
+        @return map-get(map-get($transition, $key-name), $key-name);
+      }
+    } @else {
+      @return map-get($transition, $key-name);
+    }
+  } @else {
+    @if $sub-key != null {
+      @return var(--#{$prefix}-transition-#{$key-name}--#{$sub-key});
+    } @else {
+      @return var(--#{$prefix}-transition--#{$key-name});
+    }
+  }
 }
 
 // get a css-variable or the actual value from the spacing-map
 @function spacing($key-name, $value: false) {
-	@if $value == true {
-		@return map-get($spacing, $key-name);
-	} @else {
-		@return var(--#{$prefix}-spacing-#{$key-name});
-	}
+  @if $value == true {
+    @return map-get($spacing, $key-name);
+  } @else {
+    @return var(--#{$prefix}-spacing--#{$key-name});
+  }
 }
 
 // get a css-variable or the actual value from the grid-gap-map
 @function grid-gap($key-name, $value: false) {
-	@if $value == true {
-		@return map-get($grid-gap, $key-name);
-	} @else {
-		@return var(--#{$prefix}-grid-gap-#{$key-name});
-	}
+  @if $value == true {
+    @return map-get($grid-gap, $key-name);
+  } @else {
+    @return var(--#{$prefix}-grid-gap--#{$key-name});
+  }
 }
 
 // calculate the font color old_version
@@ -97,53 +111,53 @@
 
 // calculate the font color
 @function textColor($n) {
-	$color-brightness: round(
-					(red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000
-	);
-	$light-color: round(
-					(red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000
-	);
+  $color-brightness: round(
+    (red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000
+  );
+  $light-color: round(
+    (red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000
+  );
 
-	@if abs($color-brightness) < ($light-color/2) {
-		@return colorMaps(grayscale, true, light);
-	} @else {
-		@return colorMaps(grayscale, true, dark);
-	}
+  @if abs($color-brightness) < ($light-color/2) {
+    @return colorMaps(grayscale, true, light);
+  } @else {
+    @return colorMaps(grayscale, true, dark);
+  }
 }
 
 // color Level
 
-@function color-level($color: colorMaps(grayscale, true,  dark), $level: 0) {
-	$color-base: if($level > 0, $dark, $light);
-	$level: abs($level);
+@function color-level($color: colorMaps(grayscale, true, dark), $level: 0) {
+  $color-base: if($level > 0, $dark, $light);
+  $level: abs($level);
 
-	@return mix($color-base, $color, $level * $theme-color-interval);
+  @return mix($color-base, $color, $level * $theme-color-interval);
 }
 
 // Return opaque color
 // opaque(#fff, rgba(0, 0, 0, .5)) => #808080
 @function opaque($background, $foreground) {
-	@return mix(rgba($foreground, 1), $background, opacity($foreground) * 100);
+  @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100);
 }
 
 // scss-docs-start color-functions
 // Tint a color: mix a color with white
 @function tint-color($color, $weight) {
-	@return mix(white, $color, $weight);
+  @return mix(white, $color, $weight);
 }
 
 // Shade a color: mix a color with black
 @function shade-color($color, $weight) {
-	@return mix(black, $color, $weight);
+  @return mix(black, $color, $weight);
 }
 
 // Shade the color if the weight is positive, else tint it
 @function shift-color($color, $weight) {
-	@return if(
-					$weight > 0,
-					shade-color($color, $weight),
-					tint-color($color, -$weight)
-	);
+  @return if(
+    $weight > 0,
+    shade-color($color, $weight),
+    tint-color($color, -$weight)
+  );
 }
 
 // Replace `$search` with `$replace` in `$string`
@@ -156,18 +170,18 @@
 // @return {String} - Updated string
 
 @function str-replace($string, $search, $replace: "") {
-	$index: str-index($string, $search);
+  $index: str-index($string, $search);
 
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace +
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
       str-replace(
         str-slice($string, $index + str-length($search)),
         $search,
         $replace
       );
-	}
+  }
 
-	@return $string;
+  @return $string;
 }
 // scss-docs-end color-functions
 
@@ -176,17 +190,16 @@
 // Requires the use of quotes around data URIs.
 
 @function escape-svg($string) {
-	@if str-index($string, "data:image/svg+xml") {
-		@each $char, $encoded in $escaped-characters {
-			// Do not escape the url brackets
-			@if str-index($string, "url(") == 1 {
-				$string: url("#{str-replace(str-slice($string, 6, -3), $char, $encoded)}");
-			} @else {
-				$string: str-replace($string, $char, $encoded);
-			}
-		}
-	}
+  @if str-index($string, "data:image/svg+xml") {
+    @each $char, $encoded in $escaped-characters {
+      // Do not escape the url brackets
+      @if str-index($string, "url(") == 1 {
+        $string: url("#{str-replace(str-slice($string, 6, -3), $char, $encoded)}");
+      } @else {
+        $string: str-replace($string, $char, $encoded);
+      }
+    }
+  }
 
-	@return $string;
+  @return $string;
 }
-

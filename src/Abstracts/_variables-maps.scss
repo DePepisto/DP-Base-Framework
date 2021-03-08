@@ -2,143 +2,158 @@
 
 // the color map BEGIN
 $colors: (
-	// grayscale
-		grayscale: (
-				light: $light,
-				dark: $dark,
-				light-gray: $light-gray,
-				gray: $gray,
-				dark-gray: $dark-gray,
-		),
-	// theme
-		theme: (
-				primary: $primary,
-				secondary: $secondary,
-				accent: $accent,
-		),
-	// signal
-		signal: (
-				success: $success,
-				warning: $warning,
-				danger: $danger,
-				info: $info,
-		),
-		global: (
-				bg: $global-bg,
-				font: $global-font,
-		),
-		font: (
-				dark: $dark-font,
-				light: $light-font,
-				dark-headline: $dark-headline,
-				light-headline: $light-headline,
-		),
+  // grayscale
+  grayscale:
+    (
+      light: $light,
+      dark: $dark,
+      light-gray: $light-gray,
+      gray: $gray,
+      dark-gray: $dark-gray,
+    ),
+  // theme
+  theme:
+    (
+      primary: $primary,
+      secondary: $secondary,
+      accent: $accent,
+    ),
+  // signal
+  signal:
+    (
+      success: $success,
+      warning: $warning,
+      danger: $danger,
+      info: $info,
+    ),
+  global: (
+    bg: $global-bg,
+    font: $global-font,
+  ),
+  font: (
+    dark: $dark-font,
+    light: $light-font,
+    dark-headline: $dark-headline,
+    light-headline: $light-headline,
+  )
 ) !default;
 // the color map END
 
 // distance map BEGIN
 $spacing: (
-		default: $spacing-default,
-		smallest: $spacing-smallest,
-		small: $spacing-small,
-		medium: $spacing-medium,
-		large: $spacing-large,
-		xLarge: $spacing-xLarge,
+  default: $spacing-default,
+  smallest: $spacing-smallest,
+  small: $spacing-small,
+  medium: $spacing-medium,
+  large: $spacing-large,
+  xLarge: $spacing-xLarge,
 ) !default;
 
 // distance map END
 
 // grid map BEGIN
 $grid-gap: (
-		small: 1em,
-		medium: 2em,
-		large: 3em,
+  small: 1em,
+  medium: 2em,
+  large: 3em,
 ) !default;
 
 // grid map END
 
 // typography map BEGIN
 $typography: (
-		font-family: (
-				base: $font-family--sans-serif,
-				headline: $font-family--highlight,
-				monospace: $font-family--monospace,
-				dyslexic: 'temp',
-		),
-	// size
-		font-size: (
-				root: 'temp',
-				base: 1rem, // 16px
-				small: 0.75rem, // 14px
-				medium: 1.25rem, // 20px
-				large: 1.5rem, // 24px
-				x-large: 2rem, // 32px
-				2x-large: 2.625rem, //42px
-		),
-	// line-height
-		line-height: (
-				base: 1.5,
-				small: 1.2,
-				medium: 1.3,
-				large: 1.4,
-				x-large: 2,
-		),
-	// font-weight
-		font-weight: (
-				lighter: lighter,
-				light: 300,
-				normal: 400,
-				bold: 700,
-				bolder: bolder,
-		),
-	// letter spacing
-		letter-spacing: (
-				small: 0.1em,
-				base: normal,
-				wide: 0.2em,
-		),
-	// paragraph
-		paragraph: (
-				spacing: $spacing-default,
-		),
+  font-family: (
+    base: $font-family--sans-serif,
+    headline: $font-family--highlight,
+    monospace: $font-family--monospace,
+    dyslexic: "temp",
+  ),
+  // size
+  font-size:
+    (
+      root: "temp",
+      base: 1rem,
+      // 16px
+      small: 0.75rem,
+      // 14px
+      medium: 1.25rem,
+      // 20px
+      large: 1.5rem,
+      // 24px
+      x-large: 2rem,
+      // 32px
+      2x-large: 2.625rem,
+      //42px
+    ),
+  // line-height
+  line-height:
+    (
+      base: 1.5,
+      small: 1.2,
+      medium: 1.3,
+      large: 1.4,
+      x-large: 2,
+    ),
+  // font-weight
+  font-weight:
+    (
+      lighter: lighter,
+      light: 300,
+      normal: 400,
+      bold: 700,
+      bolder: bolder,
+    ),
+  // letter spacing
+  letter-spacing:
+    (
+      small: 0.1em,
+      base: normal,
+      wide: 0.2em,
+    ),
+  // paragraph
+  paragraph:
+    (
+      spacing: $spacing-default,
+    ),
 ) !default;
 // typography map END
 
 // animation duration map BEGIN
 $transition: (
-		ease: (
-				short: all 0.3s ease,
-				medium: all 0.6s ease,
-				long: all 1.2s ease,
-),
-		linear: (
-				short: all 0.3s linear,
-				medium: all 0.6s linear,
-				long: all 1.2s linear,
-		),
-		ease-in: (
-				short: all 0.3s ease-in,
-				medium: all 0.6s ease-in,
-				long: all 1.2s ease-in,
-		),
-		ease-out: (
-				short: all 0.3s ease-out,
-				medium: all 0.6s ease-out,
-				long: all 1.2s ease-out,
-		),
-		ease-in-out: (
-				short: all 0.3s ease-in-out,
-				medium: all 0.6s ease-in-out,
-				long: all 1.2s ease-in-out,
-		),
+  long: all 1.2s ease-in,
+  ease: (
+    short: all 0.3s ease,
+    medium: all 0.6s ease,
+    long: all 1.2s ease,
+  ),
+  linear: (
+    short: all 0.3s linear,
+    medium: all 0.6s linear,
+    long: all 1.2s linear,
+  ),
+  ease-in: (
+    short: all 0.3s ease-in,
+    medium: all 0.6s ease-in,
+    long: all 1.2s ease-in,
+  ),
+  ease-out: (
+    short: all 0.3s ease-out,
+    medium: all 0.6s ease-out,
+    long: all 1.2s ease-out,
+  ),
+  ease-in-out: (
+    short: all 0.3s ease-in-out,
+    medium: all 0.6s ease-in-out,
+    long: all 1.2s ease-in-out,
+  ),
 ) !default;
 // animation duration map END
 
 // Characters which are escaped by the escape-svg function
 $escaped-characters: (
-				('<', '%3c'),
-				('>', '%3e'),
-				('#', '%23'),
-				('(', '%28'),
-				(')', '%29')
+  ("<", "%3c"),
+  (">", "%3e"),
+  ("#", "%23"),
+  ("(", "%28"),
+  (")", "%29")
 ) !default;

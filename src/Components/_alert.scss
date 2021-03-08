@@ -28,7 +28,7 @@ $alert-color-level: 7 !default;
   position: relative;
   margin-bottom: spacing(small);
   padding: spacing(small) spacing(medium);
-  transition: transition(ease-short);
+  transition: transition(ease, true, short);
   opacity: 1;
   border: 1px solid transparent;
 
@@ -37,13 +37,13 @@ $alert-color-level: 7 !default;
   }
 
   &__link {
-    font-weight: typo(font-weight--bold);
+    font-weight: typo(font-weight, true, bold);
     color: currentColor;
   }
 
   &--dismissible {
     padding-right: $close-font-size + spacing(small, true) * 2;
-    transition: transition(ease-in-out-medium);
+    transition: transition(ease-in-out, true, medium);
     opacity: 1;
 
     &:hover {
