@@ -24,24 +24,23 @@ $alert-bg-level: -9 !default;
 $alert-border-level: -6 !default;
 $alert-color-level: 7 !default;
 
-.#{$prefix}-alert {
+@include block("alert", component) {
   position: relative;
   margin-bottom: spacing(small);
   padding: spacing(small) spacing(medium);
   transition: transition(ease, true, short);
   opacity: 1;
   border: 1px solid transparent;
-
-  &__heading {
+  @include element("heading") {
     color: inherit;
   }
 
-  &__link {
+  @include element("link") {
     font-weight: typo(font-weight, true, bold);
     color: currentColor;
   }
 
-  &--dismissible {
+  @include modifier("dismissible") {
     padding-right: $close-font-size + spacing(small, true) * 2;
     transition: transition(ease-in-out, true, medium);
     opacity: 1;
@@ -72,13 +71,14 @@ $alert-color-level: 7 !default;
   }
 
   @each $color, $value in $alert-colors {
-    &--#{$color} {
+    @include modifier("#{$color}") {
       color: color-level($value, $alert-color-level);
       @include gradient-bg(color-level($value, $alert-bg-level));
       border-color: color-level($value, $alert-border-level);
-
-      .alert__link {
-        color: darken(color-level($value, $alert-color-level), 10%);
+      @include block("alert", component) {
+        @include element("link") {
+          color: darken(color-level($value, $alert-color-level), 10%);
+        }
       }
     }
   }
