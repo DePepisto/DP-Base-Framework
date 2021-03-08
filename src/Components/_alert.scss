@@ -57,7 +57,6 @@ $alert-color-level: 7 !default;
       top: 0;
       right: 0;
       display: grid;
-      padding: $close-font-size / 4;
       color: currentColor;
 
       &:before {
