@@ -1,0 +1,70 @@
+@use 'sass:color';
+
+@use '../Abstracts/enable-features' as *;
+@use '../Abstracts/font-stacks' as *;
+@use '../Abstracts/variables' as *;
+@use '../Abstracts/variables-maps' as *;
+@use '../Abstracts/mixins' as *;
+@use '../Abstracts/functions' as *;
+
+
+
+:root {
+	@if $enable-smooth-scroll {
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
+	}
+	// colors
+	@each $name, $value in $colors {
+		@if isMap($value) {
+			@each $sub-key, $sub-value in $value {
+				#{--#{$prefix}-color-#{$name}--}#{$sub-key}: $sub-value;
+			}
+		} @else {
+			#{--#{$prefix}-color--}#{$name}: $value;
+		}
+	}
+	// typography
+	@each $name, $value in $typography {
+		@if isMap($value) {
+			@each $sub-key, $sub-value in $value {
+				#{--#{$prefix}-typo-#{$name}--}#{$sub-key}: $sub-value;
+			}
+		} @else {
+			#{--#{$prefix}-typo--}#{$name}: $value;
+		}
+	}
+	// spacing
+	@each $name, $value in $spacing {
+		@if isMap($value) {
+			@each $sub-key, $sub-value in $value {
+				#{--#{$prefix}-spacing-#{$name}--}#{$sub-key}: $sub-value;
+			}
+		} @else {
+			#{--#{$prefix}-spacing--}#{$name}: $value;
+		}
+	}
+
+	// grid-gap
+	@each $name, $value in $grid-gap {
+		@if isMap($value) {
+			@each $sub-key, $sub-value in $value {
+				#{--#{$prefix}-grid-gap-#{$name}--}#{$sub-key}: $sub-value;
+			}
+		} @else {
+			#{--#{$prefix}-grid-gap--}#{$name}: $value;
+		}
+	}
+
+	// transition
+	@each $name, $value in $transition {
+		@if isMap($value) {
+			@each $sub-key, $sub-value in $value {
+				#{--#{$prefix}-transition-#{$name}--}#{$sub-key}: $sub-value;
+			}
+		} @else {
+			#{--#{$prefix}-transition--}#{$name}: $value;
+		}
+	}
+}

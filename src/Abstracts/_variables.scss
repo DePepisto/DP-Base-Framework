@@ -1,0 +1,89 @@
+@use './font-stacks' as *;
+
+// Brand
+$prefix: "dp" !default;
+
+//color-theme special DePepisto
+
+$dark-cyan-blue: #1b2431 !default;
+$dark-cyan-blue-inverted: #e4dbce !default;
+
+// Theme Color
+$primary: #1b2431 !default;
+$secondary: #39aca6 !default;
+$accent: #ff4500 !default;
+
+// Signal Color
+$success: #32b643 !default;
+$warning: #ffb700 !default;
+$danger: #e85600 !default;
+$info: #39c !default;
+
+// grayscale
+
+$light: #fff !default;
+$light-gray: #e4e5e6 !default;
+$gray: #bcbcbc !default;
+$dark-gray: #4f4d4e !default;
+$dark: #171211 !default;
+
+// global color
+$global-bg: #fdf9f3 !default;
+$global-font: #2c292d !default;
+
+// font
+$dark-font: #2c292d !default;
+$light-font: #fdf9f3 !default;
+$dark-headline: #2c292d !default;
+$light-headline: #fdf9f3 !default;
+
+// Distance
+$spacing-default: 1rem;
+$spacing-smallest: $spacing-default * 0.5 !default;
+$spacing-small: $spacing-default * 0.75 !default;
+$spacing-medium: $spacing-default * 1.5 !default;
+$spacing-large: $spacing-default * 2 !default;
+$spacing-xLarge: $spacing-default * 3 !default;
+
+// Grid
+$grid-columns: 12;
+
+// font-family
+$font-family--sans-serif: $font-stack-system !default;
+$font-family--monospace: $font-stack-consolas !default;
+$font-family--dyslexic: "temp" !default;
+$font-family--highlight: $font-stack-system !default;
+
+// Close
+
+$close-font-size: 2.4rem !default;
+$close-font-weight: 400 !default;
+$close-color: $dark !default;
+$close-text-shadow: 0 1px 0 $light !default;
+
+// Breakpoints
+$device--medium: 40em !default; // 640px Tablet Portrait
+$device--large: 60em !default; // 960px Tablet Landscape
+$device--xlarge: 75em !default; // 1200px  Laptop / Normale Screens
+$device--xxlarge: 100em !default; // 1600px   Big Screen
+
+// Container
+
+$container__padding: 1em !default;
+$container__margin: 1em !default;
+
+// box-shadow
+$base__box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.08),
+  0 1px 6px rgba(0, 0, 0, 0.08) !default;
+$global-small-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !default;
+$global-medium-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08) !default;
+$global-large-box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16) !default;
+$global-xlarge-box-shadow: 0 28px 50px rgba(0, 0, 0, 0.16) !default;
+
+// border-radius for all elements
+$base__border-radius: 0 !default;
+$base__border-size: 1px !default;
+
+// List Style
+$unordered-list-style: circle inside !default;
+$ordered-list-style: decimal inside !default;

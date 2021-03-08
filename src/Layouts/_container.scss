@@ -1,0 +1,73 @@
+@use 'sass:color';
+
+@use '../Abstracts/enable-features' as *;
+@use '../Abstracts/font-stacks' as *;
+@use '../Abstracts/variables' as *;
+@use '../Abstracts/variables-maps' as *;
+@use '../Abstracts/mixins' as *;
+@use '../Abstracts/functions' as *;
+
+@include block("container", layout) {
+  grid-row: 1;
+  max-width: 100%;
+  z-index: auto;
+  padding: 0 $container--padding;
+  @include modifier("wide") {
+    /* Container Wide  */
+    grid-column: 1 / 13;
+  }
+
+  @include modifier(10) {
+    /* Container 10  */
+    grid-column: 1 / 13;
+
+    @include respond(xxLarge) {
+      grid-column: 2 / 12;
+    }
+  }
+
+  @include modifier(8) {
+    /* Container 8  */
+    grid-column: 1 / 13;
+
+    @include respond(xLarge) {
+      grid-column: 2 / 12;
+    }
+    @include respond(xxLarge) {
+      grid-column: 3 / 11;
+    }
+  }
+
+  @include modifier(6) {
+    /* Container 6  */
+    grid-column: 1 / 13;
+
+    @include respond(large) {
+      grid-column: 2 / 12;
+    }
+    @include respond(xLarge) {
+      grid-column: 3 / 11;
+    }
+    @include respond(xxLarge) {
+      grid-column: 4 / 10;
+    }
+  }
+
+  @include modifier(4) {
+    /* Container 4  */
+    grid-column: 1 / 13;
+
+    @include respond(medium) {
+      grid-column: 2 / 12;
+    }
+    @include respond(large) {
+      grid-column: 3 / 11;
+    }
+    @include respond(xLarge) {
+      grid-column: 4 / 10;
+    }
+    @include respond(xxLarge) {
+      grid-column: 5 / 9;
+    }
+  }
+}

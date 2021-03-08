@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b6607daf-97c6-4c89-8c5d-b686a04d6228" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1pEyGZ6tEnV7wfsPJVWztzZXObW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist/js" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.SCSS" />
+    <property name="settings.editor.splitter.proportion" value="0.21792261" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sweimann\OneDrive\5 swPepisto\5.1 Entwicklung\5.1.5 DP-Base-Framework\dist\js" />
+      <recent name="C:\Users\sweimann\OneDrive\5 swPepisto\5.1 Entwicklung\5.1.5 DP-Base-Framework\src\Vendors" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b6607daf-97c6-4c89-8c5d-b686a04d6228" name="Default Changelist" comment="" />
+      <created>1614762449053</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614762449053</updated>
+      <workItem from="1614762450486" duration="21148000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="196" y="0" width="1400" height="710" key="SettingsEditor" timestamp="1614763745547">
+      <screen x="0" y="0" width="1966" height="783" />
+    </state>
+    <state x="196" y="0" width="1400" height="710" key="SettingsEditor/0.0.1966.783/3440.40.1920.1040@0.0.1966.783" timestamp="1614763745547" />
+    <state x="3596" y="140" width="1316" height="738" key="dock-window-1" timestamp="1614793234806">
+      <screen x="3440" y="40" width="1920" height="1040" />
+    </state>
+    <state x="3596" y="140" width="1316" height="738" key="dock-window-1/0.0.1966.783/3440.40.1920.1040@0.0.1966.783" timestamp="1614793234806" />
+  </component>
+</project>

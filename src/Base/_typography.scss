@@ -1,0 +1,58 @@
+@use 'sass:color';
+
+@use '../Abstracts/enable-features' as *;
+@use '../Abstracts/font-stacks' as *;
+@use '../Abstracts/variables' as *;
+@use '../Abstracts/variables-maps' as *;
+@use '../Abstracts/mixins' as *;
+@use '../Abstracts/functions' as *;
+
+
+$headline1: typoMaps(font-size, false, 2x-large);
+$headline2: typoMaps(font-size, false, x-large);
+$headline3: typoMaps(font-size, false, large);
+$headline4: typoMaps(font-size, false, medium);
+$headline5: typoMaps(font-size, false, base);
+$headline6: typoMaps(font-size, false, small);
+
+
+%heading {
+	margin-top: 0;
+	margin-bottom: spacing(small, true);
+	font-family: typoMaps(font-family, true, headline), sans-serif;
+	font-weight: typoMaps(font-weight, true, bold);
+
+}
+
+
+h1, .#{$prefix}-h1 {
+	@extend %heading;
+	font-size: $headline1;
+	line-height: typoMaps(line-height, false, small);
+}
+h2, .#{$prefix}-h2 {
+	@extend %heading;
+	font-size: $headline2;
+	line-height: typoMaps(line-height, false, medium);
+}
+h3, .#{$prefix}-h3 {
+	@extend %heading;
+	font-size: $headline3;
+	line-height: typoMaps(line-height, false, large);
+}
+h4, .#{$prefix}-h4 {
+	@extend %heading;
+	font-size: $headline4;
+	line-height: typoMaps(line-height, false, large);
+}
+h5, .#{$prefix}-h5 {
+	@extend %heading;
+	font-size: $headline5;
+	line-height: typoMaps(line-height, false, large);
+}
+h6, .#{$prefix}-h6 {
+	@extend %heading;
+	font-size: $headline6;
+	line-height: typoMaps(line-height, false, large);
+}
+

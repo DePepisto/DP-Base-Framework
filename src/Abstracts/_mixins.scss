@@ -1,0 +1,200 @@
+@use './enable-features' as *;
+@use './variables' as *;
+@use './variables-maps' as *;
+
+// Viewport
+
+@mixin respond($breakpoint) {
+  // mobile first queries
+
+  @if $breakpoint == medium {
+    @media screen and (min-width: $device--medium) {
+      @content;
+    }
+  }
+  @if $breakpoint == large {
+    @media screen and (min-width: $device--large) {
+      @content;
+    }
+  }
+  @if $breakpoint == xLarge {
+    @media screen and (min-width: $device--xlarge) {
+      @content;
+    }
+  }
+  @if $breakpoint == xxLarge {
+    @media screen and (min-width: $device--xxlarge) {
+      @content;
+    }
+  }
+
+  // media only queries
+
+  @if $breakpoint == onlySmall {
+    @media screen and (max-width: $device--medium) {
+      @content;
+    } // nur Mobile
+  }
+  @if $breakpoint == onlyMedium {
+    @media screen and (min-width: $device--medium) and (max-width: $device--large) {
+      @content;
+    } // nur Tablet
+  }
+  @if $breakpoint == onlyLarge {
+    @media screen and (min-width: $device--large) and (max-width: $device--xlarge) {
+      @content;
+    } // nur Desktop
+  }
+  @if $breakpoint == onlyXLarge {
+    @media screen and (min-width: $device--xlarge) and (max-width: $device--xxlarge) {
+      @content;
+    } // nur Big Screen
+  }
+  @if $breakpoint == exceptSmall {
+    @media screen and (min-width: $device--medium) and (max-width: $device--xxlarge) {
+      @content;
+    } // nur Big Screen
+  }
+}
+
+// @include respond($breakpoint) { ... }
+
+// Fonts-Face
+
+@mixin font-face($font-family, $font-style, $font-weight, $src-name) {
+  font-family: $font-family;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  src: url("../../Fonts/#{$src-name}.eot");
+  // IE9 Compat Modes
+  src: local("#{$src-name}"), local("#{$src-name}"),
+    url("../../Fonts/#{$src-name}.eot?#iefix") format("embedded-opentype"),
+    url("../../Fonts/#{$src-name}.woff") format("woff"),
+    url("../../Fonts/#{$src-name}.woff") format("woff"),
+    url("../../Fonts/#{$src-name}.ttf") format("truetype"),
+    url("../../Fonts/#{$src-name}.svg#Rubik") format("svg");
+}
+
+// Gradients
+
+@mixin gradient-bg($color: null) {
+  background-color: $color;
+  @if $enable-gradients {
+    background: linear-gradient(0deg, darken($color, 10%), $color);
+  }
+}
+
+// @include block("name", object) {
+//   css Angaben
+// }
+
+// @include block("name", utility) {
+//   css Angaben
+// }
+
+// @include block("name", component) {
+//   css Angaben
+// }
+
+// @include block("name") {
+//   css Angaben
+// }
+
+// BEM Mixin
+/// Block
+
+@mixin block($block, $layer: null) {
+  @if $layer == layout {
+    .#{$prefix}-l-#{$block} {
+      @content;
+    }
+  }
+  @if $layer == object {
+    .#{$prefix}-o-#{$block} {
+      @content;
+    }
+  }
+  @if $layer == component {
+    .#{$prefix}-c-#{$block} {
+      @content;
+    }
+  }
+  @if $layer == utility {
+    .#{$prefix}-u-#{$block} {
+      @content;
+    }
+  }
+  @if $layer == null {
+    .#{$prefix}-#{$block} {
+      @content;
+    }
+  }
+}
+
+/// Block Element
+
+@mixin element($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+/// Block Modifier
+
+@mixin modifier($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+// @include selector($typ) { ... }
+@mixin selector($typ) {
+  @if $typ == "link" {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else if $typ == "button" {
+    &:focus,
+    &:hover {
+      @content;
+    }
+  } @else if $typ == "link_active" {
+    &:focus,
+    &:active,
+    &:hover,
+    &.selected {
+      @content;
+    }
+  }
+}
+
+// stylelint-disable declaration-no-important
+
+// Hide content visually while keeping it accessible to assistive technologies
+//
+// See: https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/
+// See: https://hugogiraudel.com/2016/10/13/css-hide-and-seek/
+
+@mixin visually-hidden() {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important; // Fix for https://github.com/twbs/bootstrap/issues/25686
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Use to only display content when it's focused.
+//
+// Useful for "Skip to main content" links; see https://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+
+@mixin visually-hidden-focusable() {
+  &:not(:focus) {
+    @include visually-hidden();
+  }
+}

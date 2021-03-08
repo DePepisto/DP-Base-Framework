@@ -1,0 +1,72 @@
+@use 'sass:color';
+
+@use '../Abstracts/enable-features' as *;
+@use '../Abstracts/font-stacks' as *;
+@use '../Abstracts/variables' as *;
+@use '../Abstracts/variables-maps' as *;
+@use '../Abstracts/mixins' as *;
+@use '../Abstracts/functions' as *;
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 100%;
+}
+
+[tabindex="-1"]:focus:not(:focus-visible) {
+	outline: 0 !important;
+}
+
+hr {
+	margin: 1rem 0;
+	color: inherit;
+	background-color: currentColor;
+	border: 0;
+	opacity: 0.25;
+}
+
+hr:not([size]) {
+	height: 1px;
+}
+
+a,
+button {
+	touch-action: manipulation;
+}
+button {
+	border-radius: 0;
+}
+
+button:focus {
+	outline: 1px dotted;
+}
+
+button:focus {
+	outline: 5px auto -webkit-focus-ring-color;
+}
+
+button,
+[type="button"], // 1
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button; // 2
+	border: none;
+	background: none;
+
+	@if $enable-button-pointers {
+		&:not(:disabled) {
+			cursor: pointer; // 3
+		}
+	}
+}

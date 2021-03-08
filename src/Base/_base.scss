@@ -1,0 +1,21 @@
+@use 'sass:color';
+
+@use '../Abstracts/enable-features' as *;
+@use '../Abstracts/font-stacks' as *;
+@use '../Abstracts/variables' as *;
+@use '../Abstracts/variables-maps' as *;
+@use '../Abstracts/mixins' as *;
+@use '../Abstracts/functions' as *;
+
+
+
+body {
+	font-size: typoMaps(font-size, false, base);
+	font-weight: typoMaps(font-weight, false, normal);
+	font-family: typoMaps(font-family, false, base), sans-serif;
+	line-height: typoMaps(line-height, false, base);
+	min-height: 100vh;
+	&.no-scroll {
+		overflow: hidden;
+	}
+}

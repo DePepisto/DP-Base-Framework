@@ -1,0 +1,22 @@
+@use 'sass:color';
+
+@use '../Abstracts/enable-features' as *;
+@use '../Abstracts/font-stacks' as *;
+@use '../Abstracts/variables' as *;
+@use '../Abstracts/variables-maps' as *;
+@use '../Abstracts/mixins' as *;
+@use '../Abstracts/functions' as *;
+
+// Visibility
+
+@include block("hide-for-mobile", utility) {
+  @include respond(onlySmall) {
+    display: none;
+  }
+}
+
+@include block("hide-for-desktop", utility) {
+  @include respond(medium) {
+    display: none;
+  }
+}

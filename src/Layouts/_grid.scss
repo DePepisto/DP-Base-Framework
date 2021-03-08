@@ -1,0 +1,133 @@
+@use 'sass:color';
+
+@use '../Abstracts/enable-features' as *;
+@use '../Abstracts/font-stacks' as *;
+@use '../Abstracts/variables' as *;
+@use '../Abstracts/variables-maps' as *;
+@use '../Abstracts/mixins' as *;
+@use '../Abstracts/functions' as *;
+
+@include block("grid", layout) {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+
+  @include element("col") {
+    & > .#{$prefix}-l-grid__item {
+      grid-column: span $grid-columns;
+    }
+    // Col 2 Spalten
+    @include modifier(2) {
+      @include respond(medium) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns;
+        }
+      }
+
+      @include respond(large) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 2;
+        }
+      }
+
+      @include respond(xxLarge) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 2;
+        }
+      }
+    }
+    // Col 3 Spalten
+    @include modifier(3) {
+      @include respond(medium) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 2;
+        }
+      }
+
+      @include respond(large) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 4;
+        }
+      }
+
+      @include respond(xxLarge) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 4;
+        }
+      }
+    }
+    // Col 4 Spalten
+    @include modifier(4) {
+      @include respond(medium) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 2;
+        }
+      }
+
+      @include respond(large) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 3;
+        }
+      }
+
+      @include respond(xxLarge) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 3;
+        }
+      }
+    }
+
+    // Col 6 Spalten
+    @include modifier(6) {
+      @include respond(medium) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 4;
+        }
+      }
+
+      @include respond(large) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 2;
+        }
+      }
+
+      @include respond(xxLarge) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 2;
+        }
+      }
+    }
+
+    // Col 12 Spalten
+
+    @include modifier(12) {
+      @include respond(medium) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 6;
+        }
+      }
+
+      @include respond(large) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 12;
+        }
+      }
+
+      @include respond(xxLarge) {
+        & > .#{$prefix}-l-grid__item {
+          grid-column: span $grid-columns / 12;
+        }
+      }
+    }
+  }
+  @include element("gap") {
+    @include modifier("small") {
+      grid-gap: grid-gap(small);
+    }
+    @include modifier("medium") {
+      grid-gap: grid-gap(medium);
+    }
+    @include modifier("large") {
+      grid-gap: grid-gap(large);
+    }
+  }
+}

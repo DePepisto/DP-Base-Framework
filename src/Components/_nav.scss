@@ -1,0 +1,95 @@
+@use 'sass:color';
+
+@use '../Abstracts/enable-features' as *;
+@use '../Abstracts/font-stacks' as *;
+@use '../Abstracts/variables' as *;
+@use '../Abstracts/variables-maps' as *;
+@use '../Abstracts/mixins' as *;
+@use '../Abstracts/functions' as *;
+
+$bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+%pseudo {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+}
+
+@include block("navbar", component) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  @include modifier("inline") {
+    margin: 10px 5px;
+    list-style-type: none;
+    padding: 0;
+
+    @include element("item") {
+      display: inline-block;
+      margin: 0 5px;
+
+      a {
+        color: currentColor;
+        font-size: typoMaps(font-size, false, small);
+        user-select: none;
+        text-decoration: none;
+        padding: 5px;
+        position: relative;
+        text-transform: uppercase;
+        transition: all 0.5s $bounce;
+
+        &:before {
+          @extend %pseudo;
+          top: 0;
+          left: 0;
+          transform: scaleX(0);
+          transition: all 0.6s $bounce;
+        }
+
+        &:after {
+          @extend %pseudo;
+          bottom: 0;
+          left: 0;
+
+          transform: scaleX(0);
+          transition: all 0.6s $bounce;
+        }
+
+        &:hover {
+          color: currentColor;
+
+          &:before,
+          &:after {
+            transform: scaleX(1);
+          }
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      @include modifier(selected) {
+        a {
+          color: currentColor;
+          font-weight: typoMaps(font-weight, false, bold);
+
+          &:before {
+            @extend %pseudo;
+            top: 0;
+            left: 0;
+            transform: scaleX(1);
+          }
+          &:after {
+            @extend %pseudo;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+  }
+}
