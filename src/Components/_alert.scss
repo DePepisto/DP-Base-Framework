@@ -1,0 +1,86 @@
+@use 'sass:color';
+
+@use '../Abstracts/enable-features' as *;
+@use '../Abstracts/font-stacks' as *;
+@use '../Abstracts/variables' as *;
+@use '../Abstracts/variables-maps' as *;
+@use '../Abstracts/mixins' as *;
+@use '../Abstracts/functions' as *;
+
+// scss-docs-start theme-colors-map
+$alert-colors: (
+  "primary": colorMaps(theme, true, primary),
+  "secondary": colorMaps(theme, true, secondary),
+  "accent": colorMaps(theme, true, accent),
+  "success": colorMaps(signal, true, success),
+  "info": colorMaps(signal, true, info),
+  "warning": colorMaps(signal, true, warning),
+  "danger": colorMaps(signal, true, danger),
+  "light": colorMaps(grayscale, true, light),
+  "dark": colorMaps(grayscale, true, dark),
+) !default;
+
+$alert-bg-level: -9 !default;
+$alert-border-level: -6 !default;
+$alert-color-level: 7 !default;
+
+.#{$prefix}-alert {
+  position: relative;
+  margin-bottom: spacing(small);
+  padding: spacing(small) spacing(medium);
+  transition: transition(ease-short);
+  opacity: 1;
+  border: 1px solid transparent;
+
+  &__heading {
+    color: inherit;
+  }
+
+  &__link {
+    font-weight: typo(font-weight--bold);
+    color: currentColor;
+  }
+
+  &--dismissible {
+    padding-right: $close-font-size + spacing(small, true) * 2;
+    transition: transition(ease-in-out-medium);
+    opacity: 1;
+
+    &:hover {
+      opacity: 0.9;
+      transform: scale(1.01);
+      box-shadow: $base__box-shadow;
+    }
+
+    .btn-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: grid;
+      padding: $close-font-size / 4;
+      color: currentColor;
+
+      &:before {
+        font-size: $close-font-size;
+        line-height: 1;
+        display: block;
+        width: $close-font-size;
+        height: $close-font-size;
+        content: "\00d7";
+        text-align: center;
+      }
+    }
+  }
+
+  @each $color, $value in $alert-colors {
+    &--#{$color} {
+      color: color-level($value, $alert-color-level);
+      @include gradient-bg(color-level($value, $alert-bg-level));
+      border-color: color-level($value, $alert-border-level);
+
+      .alert__link {
+        color: darken(color-level($value, $alert-color-level), 10%);
+      }
+    }
+  }
+}
