@@ -13,21 +13,19 @@
   z-index: auto;
   padding: 0 $container--padding;
   @include modifier("wide") {
-    /* Container Wide  */
+    // Container Wide
     grid-column: 1 / 13;
   }
-
+  // Container 10
   @include modifier(10) {
-    /* Container 10  */
     grid-column: 1 / 13;
 
     @include respond(xxLarge) {
       grid-column: 2 / 12;
     }
   }
-
+  // Container 8
   @include modifier(8) {
-    /* Container 8  */
     grid-column: 1 / 13;
 
     @include respond(xLarge) {
@@ -37,9 +35,8 @@
       grid-column: 3 / 11;
     }
   }
-
+  // Container 6
   @include modifier(6) {
-    /* Container 6  */
     grid-column: 1 / 13;
 
     @include respond(large) {
@@ -52,7 +49,7 @@
       grid-column: 4 / 10;
     }
   }
-
+  // Container 4
   @include modifier(4) {
     /* Container 4  */
     grid-column: 1 / 13;
