@@ -23,3 +23,17 @@
 @include block("noscroll", utility) {
   overflow: hidden;
 }
+
+.docu-title {
+  text-transform: uppercase;
+  position: sticky;
+  color: #ceced4;
+  top: 88px;
+  z-index: -1;
+  display: block;
+  padding: 3rem 1rem;
+}
+
+section {
+  position: relative;
+}
