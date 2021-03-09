@@ -35,4 +35,10 @@
     margin-right: auto;
     line-height: 0;
   }
+  &.scroll-header {
+    box-shadow: $global-small-box-shadow;
+  }
+  & + main {
+    padding-top: 88px;
+  }
 }
