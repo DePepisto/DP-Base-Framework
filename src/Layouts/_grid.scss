@@ -10,111 +10,104 @@
 @include block("grid", layout) {
   display: grid;
   grid-template-columns: repeat($grid-columns, 1fr);
-
   @include element("col") {
-    & > .#{$prefix}-l-grid__item {
-      grid-column: span $grid-columns;
+    @include block("grid", layout) {
+      @include element("item") {
+        grid-column: span $grid-columns;
+      }
     }
+
     // Col 2 Spalten
     @include modifier(2) {
-      @include respond(medium) {
-        & > .#{$prefix}-l-grid__item {
+      @include block("grid", layout) {
+        @include element("item") {
           grid-column: span $grid-columns;
-        }
-      }
 
-      @include respond(large) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 2;
-        }
-      }
-
-      @include respond(xxLarge) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 2;
+          @include respond(medium) {
+            grid-column: span $grid-columns;
+          }
+          @include respond(large) {
+            grid-column: span $grid-columns / 2;
+          }
+          @include respond(xxLarge) {
+            grid-column: span $grid-columns / 2;
+          }
         }
       }
     }
-    // Col 3 Spalten
+
+    // 3 Spalten
     @include modifier(3) {
-      @include respond(medium) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 2;
-        }
-      }
+      @include block("grid", layout) {
+        @include element("item") {
+          grid-column: span $grid-columns;
 
-      @include respond(large) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 4;
-        }
-      }
-
-      @include respond(xxLarge) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 4;
+          @include respond(medium) {
+            grid-column: span $grid-columns / 2;
+          }
+          @include respond(large) {
+            grid-column: span $grid-columns / 4;
+          }
+          @include respond(xxLarge) {
+            grid-column: span $grid-columns / 4;
+          }
         }
       }
     }
-    // Col 4 Spalten
+
+    // 4 Spalten
     @include modifier(4) {
-      @include respond(medium) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 2;
-        }
-      }
+      @include block("grid", layout) {
+        @include element("item") {
+          grid-column: span $grid-columns;
 
-      @include respond(large) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 3;
-        }
-      }
-
-      @include respond(xxLarge) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 3;
+          @include respond(medium) {
+            grid-column: span $grid-columns / 2;
+          }
+          @include respond(large) {
+            grid-column: span $grid-columns / 3;
+          }
+          @include respond(xxLarge) {
+            grid-column: span $grid-columns / 3;
+          }
         }
       }
     }
 
-    // Col 6 Spalten
+    // 6 Spalten
     @include modifier(6) {
-      @include respond(medium) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 4;
-        }
-      }
+      @include block("grid", layout) {
+        @include element("item") {
+          grid-column: span $grid-columns;
 
-      @include respond(large) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 2;
-        }
-      }
-
-      @include respond(xxLarge) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 2;
+          @include respond(medium) {
+            grid-column: span $grid-columns / 4;
+          }
+          @include respond(large) {
+            grid-column: span $grid-columns / 2;
+          }
+          @include respond(xxLarge) {
+            grid-column: span $grid-columns / 2;
+          }
         }
       }
     }
 
-    // Col 12 Spalten
-
+    // 12 Spalten
     @include modifier(12) {
-      @include respond(medium) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 6;
-        }
-      }
+      @include block("grid", layout) {
+        @include element("item") {
+          grid-column: span $grid-columns;
 
-      @include respond(large) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 12;
-        }
-      }
-
-      @include respond(xxLarge) {
-        & > .#{$prefix}-l-grid__item {
-          grid-column: span $grid-columns / 12;
+          @include respond(medium) {
+            grid-column: span $grid-columns / 6;
+          }
+          @include respond(large) {
+            grid-column: span $grid-columns / 12;
+          }
+          @include respond(xxLarge) {
+            grid-column: span $grid-columns / 12;
+          }
         }
       }
     }
