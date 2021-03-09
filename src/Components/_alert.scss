@@ -27,7 +27,7 @@ $alert-color-level: 7 !default;
 @include block("alert", component) {
   position: relative;
   margin-bottom: spacing(small);
-  padding: spacing(small) spacing(medium);
+  padding: $close-font-size;
   transition: transition(ease, true, short);
   opacity: 1;
   border: 1px solid transparent;
@@ -41,7 +41,6 @@ $alert-color-level: 7 !default;
   }
 
   @include modifier("dismissible") {
-    padding-right: $close-font-size + spacing(small, true) * 2;
     transition: transition(ease-in-out, true, medium);
     opacity: 1;
 
