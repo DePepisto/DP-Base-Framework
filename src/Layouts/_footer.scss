@@ -10,13 +10,13 @@
 @include block("footer", layout) {
   background: invert(colorMaps(theme, true, primary));
   color: colorMaps(theme, true, primary);
-  height: 3.3335rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  padding: 1rem;
   @include respond(large) {
-    height: 6rem;
+    min-height: 6rem;
   }
   @include element("claim") {
     display: flex;

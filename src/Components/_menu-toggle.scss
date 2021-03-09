@@ -1,0 +1,69 @@
+@use 'sass:color';
+
+@use '../Abstracts/enable-features' as *;
+@use '../Abstracts/font-stacks' as *;
+@use '../Abstracts/variables' as *;
+@use '../Abstracts/variables-maps' as *;
+@use '../Abstracts/mixins' as *;
+@use '../Abstracts/functions' as *;
+
+@include block("menu-toggle", component) {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  &.active {
+    @include block("menu-toggle", component) {
+      @include element("list") {
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  svg {
+    fill: none;
+    stroke: #02020b;
+    stroke-width: 2px;
+    path {
+      transition: 0.2s;
+    }
+    &.active {
+      .line-1 {
+        d: path("M9,4 L9,4");
+        @supports not (d: path("")) {
+          transform: translate(4px, -2px) rotate(45deg);
+        }
+      }
+      .line-2 {
+        d: path("M3,13 L15,1");
+        @supports not (d: path("")) {
+          transform: translate(-6px, 6px) rotate(-45deg);
+        }
+      }
+      .line-3 {
+        d: path("M3,1 L15,13");
+      }
+    }
+  }
+  @include element("text") {
+    margin-right: 0.75rem;
+    height: 21px;
+    position: relative;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-transform: uppercase;
+  }
+  @include element("list") {
+    text-align: right;
+    transition: transform 0.23s ease-out;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  @include element("image") {
+    fill: none;
+    stroke: #02020b;
+    stroke-width: 2px;
+  }
+}
