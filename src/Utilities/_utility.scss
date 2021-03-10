@@ -31,9 +31,14 @@
   top: 88px;
   z-index: -1;
   display: block;
-  padding: 3rem 1rem;
+  padding: 0 1rem;
 }
 
 section {
   position: relative;
+  padding: 4rem 0;
+  z-index: -1;
+}
+section.gray {
+  background-color: #f1f2f5;
 }
