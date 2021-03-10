@@ -84,6 +84,19 @@ Alle Komponenten werden über ein Mixin
 @include block("name", component) {
    //css Angaben
    font-size: 1rem;
+   background-color: black;
+   color:white;
+
+    //Ein Element ist eine Instanz innerhalb der Componente und sollte auch eindeutig gewählt werden z.B. title, link, image etc
+    @include element("element") {
+        font-size: 2rem;
+    }
+
+    //Der Modifier sollte so heißen wie das was es macht in diesem Fall red oder background-red
+     @include modifier("modifier") {
+        background-color: red;
+        color: black;
+     }
  }
 ```
 
@@ -92,14 +105,27 @@ Alle Komponenten werden über ein Mixin
 
 .dp-c-name {
    font-size: 1rem;
- }
+   background-color: black;
+   color:white;
+}
+.dp-c-name__element {
+     font-size: 2rem;
+}
+.dp-c-name--modifier {
+     background-color: red;
+     color: black;
+}
 ```
 
 Und im HTML erkennbar:
-_dp = verwendeter prefix, c = Auszeichnung das es eine Komponente ist_
+_dp = verwendeter prefix, c = Auszeichnung das es eine Komponente ist name = Name der Komponente_
 
 ```HTML
-<div class="dp-c-name-der-componente">
+<!-- HTML -->
+
+<div class="dp-c-name dp-c-name--modifier">
+    <h2 class="dp-c-name__element"> .... </h2>
+</div>
 
 ```
 
