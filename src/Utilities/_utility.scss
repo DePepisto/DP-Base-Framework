@@ -37,8 +37,5 @@
 section {
   position: relative;
   padding: 4rem 0;
-  z-index: -1;
-}
-section.gray {
-  background-color: #f1f2f5;
+  border-bottom: 1px dashed #ceced4;
 }
