@@ -76,12 +76,45 @@ Persönlich genieße ich es, in diesem Abschnitt Stile wie Textauswahl, Schrifta
 
 **Components**
 In dieser Ebene sind alle kleinen, unabhängigen, generischen, *und wiederverwendbaren *Teile der Benutzeroberfläche
+Alle Komponenten werden über ein Mixin
+
+```SCSS
+//SASS Eingabe
+
+@include block("name", component) {
+   //css Angaben
+   font-size: 1rem;
+ }
+```
+
+```CSS
+/*CSS Ausgabe*/
+
+.dp-c-name {
+   font-size: 1rem;
+ }
+```
+
+Und im HTML erkennbar:
+_dp = verwendeter prefix, c = Auszeichnung das es eine Komponente ist_
+
+```HTML
+<div class="dp-c-name-der-componente">
+
+```
+
+Beispiele:
+
+- Buttons
+- Formulare
 
 **Layouts**
+In dieser Ebene wir das allgemine Layout definiert
 
 **Pages**
 
 **Themes**
+Die Themes Ebene wird dafür genutzt verschiedene Styles anzulegen zum Beispiel Darkmode, Print etc
 
 **Utilities**
 

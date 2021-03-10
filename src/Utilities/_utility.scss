@@ -26,12 +26,15 @@
 
 .docu-title {
   text-transform: uppercase;
-  position: sticky;
+  position: static;
   color: #ceced4;
-  top: 88px;
   z-index: -1;
   display: block;
   padding: 0 1rem;
+  @include respond(xxLarge) {
+    position: sticky;
+    top: 88px;
+  }
 }
 
 section {
