@@ -1,6 +1,6 @@
-@forward 'enable-features';
-@forward 'font-stacks';
-@forward 'variables';
-@forward 'variables-maps';
-@forward 'mixins';
-@forward 'functions';
+@forward '../Abstracts/enable-features';
+@forward '../Abstracts/font-stacks';
+@forward '../Abstracts/variables';
+@forward '../Abstracts/variables-maps';
+@forward '../Abstracts/mixins';
+@forward '../Abstracts/functions';

@@ -1,12 +1,5 @@
 @use 'sass:color';
-
-@use '../Abstracts/enable-features' as *;
-@use '../Abstracts/font-stacks' as *;
-@use '../Abstracts/variables' as *;
-@use '../Abstracts/variables-maps' as *;
-@use '../Abstracts/mixins' as *;
-@use '../Abstracts/functions' as *;
-
+@use '../Abstracts/' as *;
 
 
 @media print {
