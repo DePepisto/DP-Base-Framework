@@ -48,10 +48,6 @@
 		flex-direction: column;
 		align-items: center;
 		max-height: calc(100vh - 11rem);
-		overflow-y: scroll;
-		@supports (scrollbar-width: thin) {
-			-ms-overflow-style: thin; /* IE and Edge */
-			scrollbar-width: thin; /* Firefox */
-		}
+		overflow-y: auto;
 	}
 }
