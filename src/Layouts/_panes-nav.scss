@@ -23,4 +23,40 @@
       #fff
     );
   }
+  @include modifier("from-left") {
+    width: 0;
+    height: 100%;
+    transition: width 0.23s ease-out;
+    background-image: linear-gradient(45deg, #f1f2f5, #fff);
+    &.is-expanded {
+      width: 100%;
+    }
+    @include respond(large) {
+      background-image: linear-gradient(
+        90deg,
+        #f1f2f5,
+        #f1f2f5 50%,
+        #fff 0,
+        #fff
+      );
+    }
+  }
+  @include modifier("from-bottom") {
+    top: unset;
+    bottom: 0;
+    transition: height 0.23s ease-out;
+    background-image: linear-gradient(45deg, #f1f2f5, #fff);
+    &.is-expanded {
+      height: 100%;
+    }
+    @include respond(large) {
+      background-image: linear-gradient(
+        90deg,
+        #f1f2f5,
+        #f1f2f5 50%,
+        #fff 0,
+        #fff
+      );
+    }
+  }
 }
