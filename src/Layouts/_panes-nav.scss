@@ -1,62 +1,57 @@
 @use 'sass:color';
 @use '../Abstracts/' as *;
 
-@include block("panes-nav", layout) {
-  position: fixed;
-  width: 100%;
-  height: 0;
-  left: 0;
-  top: 0;
-  overflow: hidden;
-  z-index: 1;
-  background-image: linear-gradient(45deg, #f1f2f5, #fff);
-  transition: height 0.23s ease-out;
-  &.is-expanded {
-    height: 100%;
-  }
-  @include respond(large) {
-    background-image: linear-gradient(
-      90deg,
-      #f1f2f5,
-      #f1f2f5 50%,
-      #fff 0,
-      #fff
-    );
-  }
-  @include modifier("from-left") {
-    width: 0;
-    height: 100%;
-    transition: width 0.23s ease-out;
-    background-image: linear-gradient(45deg, #f1f2f5, #fff);
-    &.is-expanded {
-      width: 100%;
-    }
-    @include respond(large) {
-      background-image: linear-gradient(
-        90deg,
-        #f1f2f5,
-        #f1f2f5 50%,
-        #fff 0,
-        #fff
-      );
-    }
-  }
-  @include modifier("from-bottom") {
-    top: unset;
-    bottom: 0;
-    transition: height 0.23s ease-out;
-    background-image: linear-gradient(45deg, #f1f2f5, #fff);
-    &.is-expanded {
-      height: 100%;
-    }
-    @include respond(large) {
-      background-image: linear-gradient(
-        90deg,
-        #f1f2f5,
-        #f1f2f5 50%,
-        #fff 0,
-        #fff
-      );
-    }
-  }
+@include block('panes-nav', layout) {
+	position: fixed;
+	width: 100%;
+	height: 0;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	z-index: 1;
+	background-image: linear-gradient(45deg, #f1f2f5, #fff);
+	transition: height 0.23s ease-out;
+	&.is-expanded {
+		height: 100%;
+	}
+	@include respond(large) {
+		background-image: linear-gradient(90deg, #f1f2f5, #f1f2f5 50%, #fff 0, #fff);
+	}
+	@include modifier('from-left') {
+		width: 0;
+		height: 100%;
+		transition: width 0.23s ease-out;
+		background-image: linear-gradient(45deg, #f1f2f5, #fff);
+		&.is-expanded {
+			width: 100%;
+		}
+		@include respond(large) {
+			background-image: linear-gradient(90deg, #f1f2f5, #f1f2f5 50%, #fff 0, #fff);
+		}
+	}
+	@include modifier('from-bottom') {
+		top: unset;
+		bottom: 0;
+		transition: height 0.23s ease-out;
+		background-image: linear-gradient(45deg, #f1f2f5, #fff);
+		&.is-expanded {
+			height: 100%;
+		}
+		@include respond(large) {
+			background-image: linear-gradient(90deg, #f1f2f5, #f1f2f5 50%, #fff 0, #fff);
+		}
+	}
+	@include element('inner') {
+		margin-top: 5.5rem;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-height: calc(100vh - 11rem);
+		overflow-y: scroll;
+		@supports (scrollbar-width: thin) {
+			-ms-overflow-style: thin; /* IE and Edge */
+			scrollbar-width: thin; /* Firefox */
+		}
+	}
 }
