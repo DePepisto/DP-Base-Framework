@@ -47,7 +47,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		max-height: calc(100vh - 11rem);
-		overflow-y: auto;
+		min-width: 100vw;
+		max-height: calc(100vh - 5.5rem);
+		overflow: auto;
 	}
 }
