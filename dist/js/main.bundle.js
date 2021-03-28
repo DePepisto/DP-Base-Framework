@@ -1,7 +1,3 @@
-let Sven = 'TEST';
-var Sven1 = 'TEST';
-const Sven2 = 'TEST';
-
 /* Alert Remove by Click */
 
 function alertClose() {
