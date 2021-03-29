@@ -34,6 +34,7 @@ const person = {
 			: `Hallo Frau ${this.vorname} ${this.nachname}`;
 	},
 };
+console.log(person.anrede());
 
 // Bedingter ternärer Operator
 console.log(
@@ -41,8 +42,6 @@ console.log(
 		? `Hallo Herr ${person.vorname} ${person.nachname}`
 		: `Hallo Frau ${person.vorname} ${person.nachname}`
 );
-
-console.log(person.anrede());
 
 const names = ['Andreas', 'Sven', 'Rudolf', 'Maria', 'Josef', 'Hermine'];
 
