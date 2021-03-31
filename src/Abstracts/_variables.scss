@@ -1,7 +1,7 @@
 @use './font-stacks' as *;
 
 // Brand
-$prefix: "dp" !default;
+$prefix: 'dp' !default;
 
 //color-theme special DePepisto
 
@@ -51,7 +51,7 @@ $grid-columns: 12;
 // font-family
 $font-family--sans-serif: $font-stack-system !default;
 $font-family--monospace: $font-stack-consolas !default;
-$font-family--dyslexic: "temp" !default;
+$font-family--dyslexic: 'temp' !default;
 $font-family--highlight: $font-stack-system !default;
 
 // Close
@@ -73,8 +73,7 @@ $container__padding: 1em !default;
 $container__margin: 1em !default;
 
 // box-shadow
-$base__box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.08),
-  0 1px 6px rgba(0, 0, 0, 0.08) !default;
+$base__box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.08), 0 1px 6px rgba(0, 0, 0, 0.08) !default;
 $global-small-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !default;
 $global-medium-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08) !default;
 $global-large-box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16) !default;
@@ -87,3 +86,5 @@ $base__border-size: 1px !default;
 // List Style
 $unordered-list-style: circle inside !default;
 $ordered-list-style: decimal inside !default;
+
+$base__text-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.08) !default;
